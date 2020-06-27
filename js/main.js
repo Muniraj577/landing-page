@@ -34,3 +34,17 @@ $(function () {
 //     });
 // });
 
+$(document).scroll(function(){
+    var st = $(this).scrollTop();
+
+    $("section").each(function() {
+        if(st > $(this).offset().top && st <= $(this).offset().top + $(this).height() ){
+            var id = $(this).attr('id');
+            $('a[href="#'+id+'"]').addClass('active');
+        }else{
+            var id = $(this).attr('id');
+            $('a[href="#'+id+'"]').removeClass('active');
+        }
+    });
+
+});
