@@ -24,19 +24,21 @@ $(function () {
         }
     });
 });
-// var animationEvent = 'webkitAnimationEnd oanimationend msAnimationEnd animationend';
-// $('.aboutAnimation').click(function () {
-//     $("div .animate__animated .animate__fadeInLeft").addClass('animate__animated animate__fadeInLeft');
-//     $("div .imageFade").addClass('animate__animated animate__fadeInRight');
-//     $(this).one(animationEvent, function (event) {
-//         $("div .animate__animated .animate__fadeInLeft").removeClass('animate__animated animate__fadeInLeft');
-//         $("div .imageFade").removeClass('animate__animated animate__fadeInRight');
-//     });
-// });
+
+$(document).ready(function () {
+    var animationEvent = 'webkitAnimationEnd oanimationend msAnimationEnd animationend';
+    $('.aboutAnimation').click(function () {
+        $("div .animate__animated .animate__fadeInLeft").addClass('animate__animated animate__fadeInLeft');
+        $("div .imageFade").addClass('animate__animated animate__fadeInRight');
+        $(this).one(animationEvent, function (event) {
+            $("div .animate__animated .animate__fadeInLeft").removeClass('animate__animated animate__fadeInLeft');
+            $("div .imageFade").removeClass('animate__animated animate__fadeInRight');
+        });
+    });
+});
 
 $(document).scroll(function(){
     var st = $(this).scrollTop();
-
     $("section").each(function() {
         if(st > $(this).offset().top && st <= $(this).offset().top + $(this).height() ){
             var id = $(this).attr('id');
